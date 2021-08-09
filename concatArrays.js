@@ -7,7 +7,8 @@
 */
 
 function concat(arr1, arr2) {
-  return arr1.push(...arr2);
+  arr1.push(...arr2);
+  return arr1;
 }
 
 // let arr = [1, 2, 3];
