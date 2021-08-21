@@ -24,15 +24,58 @@ const vegetables = [
     redness: 4,
     plumpness: 3,
   },
+  {
+    submitter: 'Test Test',
+    redness: 43,
+    plumpness: 3,
+  },
 ];
 
 const metric = 'redness';
 
-const judgeVegetable = (array, metric) => {
-  // temp container for referenced value
-  let temp;
-  // some loop to go over and compare each instance of that metric against the others (2D array?)
-  // return the name of the submitter
-};
+function judgeVegetable(arr, metric) {
+  arr.sort((a, b) => parseFloat(b[metric] - a[metric]));
+  return arr[0].submitter;
+}
 
-judgeVegetable(vegetables, metric);
+// const judgeVegetable = (vegetables, metric) => {
+//   let temp;
+//   for (let i = 0; i < vegetables.length - 1; i++) {
+//     for (let j = 0; j < vegetables[i].length - 1; j++) {
+//       if (vegetables[i].metric > vegetables[i + 1].metric) {
+//         temp = vegetables[i].metric;
+//         return temp;
+//       }
+//     }
+//   }
+//   console.log(temp);
+// };
+
+// const judgeVegetable = (vegetables, redness) => {
+//   let temp;
+//   vegetables.forEach(function () {
+//     // if (vegetables[i].metric > vegetables[i + 1].metric) {
+//     //   temp = vegetables[i].metric;
+//     //   console.log(temp);
+//     // }
+//     console.log(vegetables[i].metric);
+//   });
+// };
+
+// const judgeVegetable = (vegetables = [], metric) => {
+//   let swapped;
+//   do {
+//     swapped = false;
+//     for (let i = 0; i < vegetables.length - 1; i++) {
+//       if (vegetables[i].metric > vegetables[i + 1].metric) {
+//         let temp = vegetables[i];
+//         vegetables[i] = vegetables[i + 1];
+//         vegetables[i + 1] = temp;
+//         swapped = true;
+//       }
+//     }
+//   } while (swapped);
+// };
+
+console.log(judgeVegetable(vegetables, metric));
+// console.log(vegetables);
